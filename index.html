@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+		<head>
+		<script src="js/jquery-2.2.4.min.js"></script>
+		<script src="bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+		<link rel="stylesheet" href="css/fonts.css" type="text/css">
+		<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+		<link rel="stylesheet" href="bootstrap-3.3.6/dist/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+		</head>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="glyphicon glyphicon-cutlery"></i> GetFed &trade;</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Features & Options</a></li>
+        <li><a href="#">Build Log</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><span data-toggle="modal" data-target="#login-modal" class="login"><span class="glyphicon glyphicon-user"></span>Login</span> or<span data-toggle="modal" data-target="#signup-modal" class="signup"> Signup!</span></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+function randomImg(){
+	var imgsources= [
+					"img/dinner-for-two-amore-pizza.jpg",
+					"img/Dinner-Party-Hors-dOeuvres.jpg",
+					"img/easy_sunday_roast.jpg",
+					"img/food-restaurant-hand-dinner.jpg",
+					"img/friedpeppers.jpg",
+					"img/garden-veggies.jpg",
+					"img/IMG_0288.png",
+					"img/meat-dinner.jpg",
+					"img/outsideeating.jpg",
+					"img/peopleeating.jpg",
+					"img/photo-1416453072034-c8dbfa2856b5.jpg",
+					"img/photo-1464207687429-7505649dae38.jpg",
+					"img/pinchitos.jpg",
+					"img/pizza.jpg",
+					"img/shrimpies.jpg",
+					"img/shrimpstew.jpg",
+					"img/tandorichicken.jpg",
+					"img/barbecue.jpg",
+					"img/chicken.jpg",
+					"img/dinner.jpg"];
+	var imgAmount=imgsources.length;
+	var pickAnimageAnyimage=Math.floor(Math.random() * imgAmount);
+	console.log(imgsources[pickAnimageAnyimage]);
+	var bgImage= document.getElementById("dynamicbackground").style.backgroundImage= "url('" + imgsources[pickAnimageAnyimage]  + "')";
+		console.log(bgImage);
+	
+}</script>
+	<body onload="randomImg()">
+	<div class="row">
+		<div class="col-sm-12 dynamic-background" id="dynamicbackground">
+			<div class="row">
+				<div class="col-sm-4">
+				</div>
+				<div class="col-sm-4 jumbotron move-down">
+				<center>
+					<h1>welcome</h1><p class="text-muted">Please Choose from the Options Below.</p>
+					<div class="btn-group">
+						<button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit the ingredients you have" data-original-title="Tooltip on top"><span class="glyphicon glyphicon-pencil"></span><br>Edit Your Ingredients</button>
+						<button class="btn btn-success"><span class="glyphicon glyphicon-ice-lolly-tasted"></span><br>Plan A Meal</button>
+						<button class="btn btn-danger"><span class="glyphicon glyphicon-question-sign"></span><br>Request A Meal</button>
+					</div>
+				</center>
+					<div class="col-sm-4">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Make it a Date! </h1>
+				<p> With GetFed, make planning meals with your friends that much less of a hassle. 
+				Choose to send SMS alerts, facebook message, or any other messaging platform to alert them. 
+				Then use GetFed's unique features to plan out the nitty-gritty. Don't let planning get in 
+				the way of a good time!</p>
+					
+		</div>
+	</div>
+	<div class="row">
+	<center>
+		<div class="col-sm-4">
+				<!--<div class="img-w-caption">-->
+						<img class="img-responsive img img-for-section" src="img/dinnerparty.jpg">
+					<h3>Eat with your friends</h3>
+				<!--</div>-->
+		</div>
+		<div class="col-sm-4">
+				<!--<div class="img-w-caption">-->
+						<img class="img-responsive img img-for-section" src="img/friendseating.jpg">
+					<h3>Eliminate planning hassle</h3>
+				<!--</div>-->
+		</div>
+		<div class="col-sm-4">
+				<!--<div class="img-w-caption">-->
+						<img class="img-responsive img img-for-section" src="img/wellmanner.jpg">
+					<h3>Have fun with little effort</h3>
+				<!--</div>-->
+		</div>
+		</center>
+		
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h1> SMS & More </h1>
+			<p>SMS info to go here </p>
+		</div>
+	</div>
+	
+<!--Sign Up Modal-->
+				<div class="modal fade" id="signup-modal">
+				  <div class="modal-dialog">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Create an Account</h4>
+					  </div>
+					  <div class="modal-body">
+						<form class="form newaccount" action="newAccount.php" method="POST"> 
+						<h3 class="personal" >Personal Information</h3>
+						<input type="text" class="form-control"  placeholder="first name" name="fname">
+						<input type="text" class="form-control"    placeholder="last name" name="lname">
+						<span class="phonenumber">
+						<span>(<input type="text" maxlength="3" oninput="formatNumbers()" class="phoneNumbers areaCode" placeholder='mobile #'>)</span>
+						<span> - <input type="text" maxlength="3" oninput="formatNumbers()" class="phoneNumbers firstThree" placeholder='mobile #'> - </span>
+						<span><input type="text" maxlength="4" oninput="formatNumbers()" class="phoneNumbers lastFour" placeholder='mobile #'></span>
+						</span>
+						<hr>
+						<h3> Optional Information </h3>
+						Prefered Dining Location:
+						<select class="form-control" name="residence" id="residence" onchange="alertChange()">
+							<option selected value="">Select an Option Below</option>
+							<option value="oncampus">On-Campus</option>
+							<option value="offcampus">Off-Campus</option>
+							<option value="miscchoice">Misc</option>
+						</select>
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+						<button onclick="submitForm()" type="button" class="btn btn-warning" >Test</button>
+						<!--<input type="submit" class="btn btn-success submitform" value="Sign-Up">-->
+						<!--<button type="button" class="btn btn-success submitform">Sign-Up</button>-->
+					  </div>
+					  </form>
+					</div>
+				  </div>
+				</div>
+<!--End signup modal-->
+
+<!--Begin Login Modal-->
+<div class="modal fade" id="login-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <div class="modal-body">
+       
+	   <form class="form loginaccont" action="login.php" method="POST"> 
+	 <input type="text" name="username" placeholder="username" class="form-control">
+	   <input type="password" name="password" placeholder="password" class="form-control">
+	   
+	  <!-- <input class="form-control" type="submit" value="Log in">-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-warning" ><!--Test</button>-->
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+<!--End Login Modal-->
+	</body>
+	<footer class="footer">
+		  <div class="container">
+			<p class="text-muted">All Content Created and Maintained by:</p>
+		  </div>
+	</footer>
+</html>

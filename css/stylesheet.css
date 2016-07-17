@@ -1,0 +1,97 @@
+.navbar {
+     border-radius: 0px !important; 
+}
+.caption-title{
+border-radius:10px;
+color:white;
+}
+.img-w-caption{
+margin-left:20px;
+border-radius:10px;
+width:400px;
+height:250px;
+border:thin solid grey;
+display:inline-block;
+}
+.img-for-section{
+border-radius:10px;
+width:400px !important;
+height:250px !important;
+padding-left:20px;
+padding-right:20px;
+}
+
+.move-down{
+margin-top:80px;
+}
+footer{
+background-color:darkgrey;
+}
+.container{
+color:white;
+}
+body{
+margin-top:-20px;
+}
+.img-captions{
+background-color:#18BC9C;
+}
+navbar{
+margin-bottom:0px !important;
+}
+.dynamic-background{
+height:500px;
+background-image:url("../img/easy_sunday_roast.jpg");
+    background-repeat: no-repeat;
+    background-size: 1500px auto;
+	background-position:center;
+	width:100%;
+	margin-top:-22px;
+}
+.dynamic-background2{
+height:100%;
+width:100%;
+background-image:url("../img/easy_sunday_roast.jpg");
+    background-repeat: no-repeat;
+    background-size: 1500px auto;
+	background-position:center;
+	width:100%;
+	margin-top:-22px;
+}
+.login{
+	font-weight: bold;
+}
+.login:hover{
+	color:white;
+	cursor:pointer;
+	text-decoration:underline;
+	transition:1s;
+}
+.signup{
+	transition:1s;
+	font-weight:bold;
+}
+.signup:hover{
+	color:white;
+	cursor:pointer;
+	text-decoration:underline;
+}
+.maincart{
+	font-size:140px;
+	color:lightgrey;
+}
+.addrow{
+	display:none;
+}
+.nomorethanten{
+	margin-top:-22px;
+}.remove-ten-alert:hover{
+	color:black;
+}
+.remove-ten-alert{
+	float:right;
+	color:white;
+}
+.tenalert{
+	display:none;
+}
