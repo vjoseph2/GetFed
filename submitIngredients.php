@@ -1,4 +1,5 @@
 <?php
+header('Location: ingredients.php');
 session_start();
 require('includes/connect.php');
 error_reporting(E_ALL ^ E_NOTICE);
@@ -111,4 +112,5 @@ checkEmptyOrNot($ingredient9, $qty9);
 checkEmptyOrNot($ingredient10, $qty10);*/
 
 //echo $ingredient1." ".$qty1;
+	
 ?>

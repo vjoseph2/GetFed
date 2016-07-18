@@ -95,3 +95,7 @@ background-image:url("../img/easy_sunday_roast.jpg");
 .tenalert{
 	display:none;
 }
+.profileImg{
+	width:100%;
+	height:auto;
+}

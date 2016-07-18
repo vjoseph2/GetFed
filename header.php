@@ -52,8 +52,12 @@ $pagename= basename($_SERVER['PHP_SELF']);
 				<li><a href='profile.php'>Profile & Settings</a></li>
 				<li><a href='past_meals.php'>View Past Meals</a></li>
 				<li><a href='manage_residences.php'>Manage Residences</a></li>";
-	}
-	else{
+	}else if($pagename == "plan-meal.php"){
+		echo "  <li class='active'><a href='home.php'>Home</a></li>
+				<li><a href='profile.php'>Profile & Settings</a></li>
+				<li><a href='past_meals.php'>View Past Meals</a></li>
+				<li><a href='manage_residences.php'>Manage Residences</a></li>";
+	}else{
 		echo "There was an error in determining your page. Try reloading or contacting the system administrator";
 	}
 }

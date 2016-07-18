@@ -41,6 +41,12 @@ function randomImg(){
 function goIngredients(){ 
 	window.location.replace("ingredients.php");
 };
+function goPlanner(){ 
+	window.location.replace("plan-meal.php");
+};
+function goRequests(){ 
+	window.location.replace("request-meal.php");
+};
 </script>
 	<body onload="randomImg()">
 	<div class="row">
@@ -53,8 +59,8 @@ function goIngredients(){
 					<h1>welcome back, <?php echo " ".$_SESSION['firstname']; ?></h1><p class="text-muted">Please Choose from the Options Below.</p>
 					<div class="btn-group">
 						<button onclick ="goIngredients()" class="btn btn-info ingredients" data-toggle="tooltip" data-placement="top" title="Edit the ingredients you have" data-original-title="Tooltip on top"><span class="glyphicon glyphicon-pencil"></span><br>Edit Your Ingredients</button>
-						<button class="btn btn-success plan"><span class="glyphicon glyphicon-ice-lolly-tasted"></span><br>Plan A Meal</button>
-						<button class="btn btn-danger request"><span class="glyphicon glyphicon-question-sign"></span><br>Request A Meal</button>
+						<button onclick ="goPlanner()" class="btn btn-success plan"><span class="glyphicon glyphicon-ice-lolly-tasted"></span><br>Plan A Meal</button>
+						<button onclick ="goRequests()" class="btn btn-danger request"><span class="glyphicon glyphicon-question-sign"></span><br>Request A Meal</button>
 					</div>
 				</center>
 					<div class="col-sm-4">

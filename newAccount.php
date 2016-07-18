@@ -10,12 +10,14 @@ function sanitation($postVal){
 }
 $fname= sanitation($_POST['fname']);
 $lname= sanitation($_POST['lname']);
+$username= sanitation($_POST['username']);
+$password= sanitation($_POST['password']);
 $residence=$_POST['dormlist']." ".$_POST['roomnumber']." ".$_POST['street']." ".$_POST['city']." ".$_POST['state']." ".$_POST['zip'];
 $cellNum= $_POST['cellNumber'];
 
 
 echo "First name: ".$fname." Last name: ".$lname." Phone number: ".$cellNum." Residence Selected was: ".$residence;
-$newUser= "INSERT INTO friends (fname,lname,cellnumber,residence) VALUES ('$fname', '$lname', '$cellNum','$residence')";
+$newUser= "INSERT INTO friends (fname,lname,cellnumber,residence,username,password) VALUES ('$fname', '$lname', '$cellNum','$residence','$username','$password')";
 
 if (mysqli_query($conn, $newUser)) {
     echo "<br>New record created successfully";

@@ -175,4 +175,42 @@ function deleterow(){
 		
 	}
 }
+
+function addrow2(){
+	if ( c <10 ){ 
+	c++;
+	console.log(c);
+	//$(".addrow").show();
+	$(".ingredientstable2").append("<tr class='ingredient"+c+"'><td>"+c+"</td><td><input name='item"+c+"' type='text'></td><td><input type='text' name='qty"+c+"'></td></tr>");
+}
+	else{
+		$(".tenalert").toggle();
+		console.log("Sorry, you cannot add more than "+c+" at a time ");
+	}
+}
+function deleterow2(){
+	if (c == 0){
+		$(".ingredientstable2").empty("slow");
+		$(".maincart2").fadeIn("slow");
+		$(".btn-container").empty();
+	}else{
+		$(".ingredient"+c).remove();
+	c--;
+	console.log(c);
+		
+	}
+}
+function updateIngredient(){
+	var getSpecificIngredient=$(this).find(".updateId").text();
+	console.log(getSpecificIngredient);
+}
+function dynamicMealImg(){
+//	var mealBg= document.getElementById("mealImg").style.backgroundImage;
+	var getMealURL= $("input[value='mealLink']").length;
+	console.log(getMealURL);
+	
+	}
+function editImg(){
+	$("#img-modal").modal('show');
+}
 //});
