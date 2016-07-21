@@ -1,5 +1,16 @@
 <?php
-$target_dir = "../testFTPfolder/";
+//header("Location: profile.php");
+$fid=$_POST['fid'];
+$target_dir2= $_POST['customFile'];
+$target_dir = '../testFTPfolder/'.$target_dir2.'/';
+
+if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, TRUE)or die("Unable to create to $target_dir");
+}else{
+	echo "$target_dir either exists or is being created...";
+}
+
+
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -19,7 +30,7 @@ if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
-// Check file size
+// Check file size 
 if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
@@ -41,4 +52,6 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+$fullFileName=$target_dir.$_FILES["fileToUpload"]["name"];
+echo $fullFileName;
 ?>

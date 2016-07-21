@@ -1,5 +1,6 @@
 <?php
 require('includes/connect.php');
+header('Location: home.php');
 #login script
 
 #check values of user and pass after sanitation 
@@ -35,8 +36,6 @@ if ($result->num_rows > 0) {
 		echo "<br> The logged in preferred image is ".$_SESSION['profImage'];
 		echo "<br> The logged in preferred contact method is ".$_SESSION['prefmethod'];
     }
-
-	header('Location: home.php');
 	echo "<br>You should be able to login with your account";
 } else {
     echo "<br>Sorry, you either typed in an incorrect password or you need to make an account";

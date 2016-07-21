@@ -42,7 +42,7 @@ function goIngredients(){
 	window.location.replace("ingredients.php");
 };
 function goPlanner(){ 
-	window.location.replace("plan-meal.php");
+	window.location.replace("plan-meal.html");
 };
 function goRequests(){ 
 	window.location.replace("request-meal.php");

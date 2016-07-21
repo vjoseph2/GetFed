@@ -1,45 +1,45 @@
-//$(document).ready(function(){
-/*function openOption(){
-	//var checkContents = document.getElementsByTagName("filler-box");
-	//var contentHTML =  checkContents.innerHTML;
-	//console.log(contentHTML);
-	var btn = document.getElementsByTagName("meal");
-	window.location="meal.php";
-	
-}*/
-//randomImg();
+
+//Removes all content within the room number input field in sign up dialog
 function removeRoomNumber() {
     $(".roomnumber").empty();
 }
 
+//Listens for user to change select tag
 function alertDormChange() {
+//first clear room info
     removeRoomNumber();
     var dormSelected = $("#dormlist :selected").val()
     var dormLength = dormSelected.length;
-    //console.log(dormLength);	
+    //console.log(dormLength);
+	//Only once, append a room number input box under the dorm selection
     $("#dormlist").one('click', function() {
         $(this).after("<div class='roomnumber'><input class='form-control' required='required' type='text' name='roomnumber' placeholder='Room #'></div>");
     });
 
 }
 
+//Removes all content within the on campus option selection field in sign up dialog
 function removeOnCampus() {
+	//clears both on-campus selectio and dorm name selection
     $("#dormlist").empty();
     $(".dorm-area").empty();
 }
 
+//Removes all content within the off campus option selection field in sign up dialog
 function removeAddress() {
     $(".address-area").empty();
 }
 
+// Adds all address fields
 function createAddress() {
     $("#residence").after("<div class='address-area'><hr>Address:<br><input class='text' placeholder='street' class='form-control street' name='street'><br><input class='text' placeholder='city' class='form-control city' name='city'><br><input class='text' placeholder='state' class='form-control state' name='state'><br><input class='text' placeholder='zip' class='form-control zip' name='zip'></div>");
 
 }
 
 
-
+//Listens for user to select the on-campus living options
 function alertChange() {
+	//clears address field first
     removeOnCampus();
     var userSelection = $("#residence :selected").val();
     console.log(userSelection);
@@ -80,7 +80,8 @@ function alertChange() {
             //debugging to see if house and house value show up independently 
             //console.log("The house is now "+keys[i]);
             //console.log("But the house option value is now "+residences[keys[i]]);
-
+			
+			//generates option tags based on key and key values
             $("#dormlist").append("<option value='" + residences[keys[i]] + "'>" + keys[i] + "</option></select>");
 
             //debugging to see if house and house value show up in respected value/text areas 
@@ -89,18 +90,23 @@ function alertChange() {
         //$("#dormlist").append("<option value='dfd'>Hi</option></select>");
         removeAddress();
     } else if (userSelection == "offcampus") {
+		//clears the rest of the form
         removeAddress();
         removeOnCampus();
         createAddress();
 
     } else if (userSelection == "miscchoice") {
+		//clears the rest of the form
         removeAddress();
         removeOnCampus();
         createAddress();
     } else {
+		//debugging message
         console.log("something went wrong... are you sure you have the correct selection option?");
     }
-
+ var userSelection = $("#dormlist :selected").val();
+ 
+$(".finalInputPreview").html(userSelection);
 
 }
 
@@ -121,7 +127,13 @@ function formatNumbers() {
     //console.log("("+areaCode+")"+firstThree+"-"+lastFour);
     var completeNumber = "(" + areaCode + ")" + "-" + firstThree + "-" + lastFour;
     $(".personal").after("<div class='fullphone'> <input type='hidden' name='cellNumber' value='" + completeNumber + "'> </div>");
-    //console.log(completeNumber);
+    if(areaCode.length==3){
+			$(".firstThree").focus();
+	}
+	if(firstThree.length==3){
+		$(".lastFour").focus();
+	}
+	//console.log(completeNumber);
 }
 
 function submitLogin(){
@@ -204,13 +216,13 @@ function updateIngredient(){
 	var getSpecificIngredient=$(this).find(".updateId").text();
 	console.log(getSpecificIngredient);
 }
-function dynamicMealImg(){
-//	var mealBg= document.getElementById("mealImg").style.backgroundImage;
-	var getMealURL= $("input[value='mealLink']").length;
-	console.log(getMealURL);
-	
-	}
+
 function editImg(){
 	$("#img-modal").modal('show');
 }
-//});
+function logout(){
+	window.location="logout.php";
+}
+function addRowtoRes(){
+	$("#addResidence").modal('open');
+}

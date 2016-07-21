@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+		<script src="js/jquery-2.2.4.min.js"></script>
+		<script src="bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+		<link rel="stylesheet" href="css/fonts.css" type="text/css">
+		<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+		<link rel="stylesheet" href="bootstrap-3.3.6/dist/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+		</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="glyphicon glyphicon-cutlery"></i> GetFed &trade;</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+		<li><a href='home.php'>Home</a></li>
+		<li class='active'><a href='profile.php'>Profile & Settings</a></li>
+		<li><a href='past_meals.php'>View Past Meals</a></li>
+		<li><a href='manage_residences.php'>Manage Residences</a></li>
+	</ul>
+ <ul class="nav navbar-nav navbar-right">
+        <li><a href="profile.php" style="display:inline-block"><span class="glyphicon glyphicon-user"></a></span>Welcome,<?php echo " ".$_SESSION['firstname']." "; ?> </li>
+       <!-- <li><a class="login" style="display:inline-block"href="logout.php">Not<?php// echo " ".$_SESSION['firstname']; ?> ? Logout</p></li>-->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<body>
+<form class="form">
+		<h1> Plan a Meal! </h1>
+<div class='row'>
+	<div class='col-sm-12'>
+		<h4>Step 1 : Pick a Day</h4>
+		<div class='calendar'>
+		</div>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-sm-12'>
+		<h4>Step 2 : Pick a Time or Time Range</h4>
+		<input class="form-control" type='time'> to <input class="form-control" type='time'>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-sm-12' id='mealimage'>
+	<!--img/chicken.jpg-->
+		<center> <span class='mealTitle'>Title Goes Here</span> </center>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-sm-6'>
+	<h4>Step 3 : Pick a Meal</h4>
+	<small>Title of Meal </small>
+		<input class="form-control" class='text'><br>
+	</div>
+	<div class='col-sm-6'>
+	<h4>Optional</h4>
+		<small>Optional: Add a link to your meal </small>
+		<input name="mealLink" class="form-control" type="text" onkeydown="dynamicMealImg()">
+	</div>
+</div>
+<input class="form-control btn btn-success" type="submit" value ="Plan the Meal">
+</form>
+		<script>
+		function dynamicMealImg(){
+		//	var mealBg= document.getElementById("mealImg").style.backgroundImage;
+			var getMealURL= $("input[value='mealLink']").text();
+			console.log(getMealURL);
+			
+			}
+		</script>
+</body>
+	</html>

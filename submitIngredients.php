@@ -3,6 +3,7 @@ header('Location: ingredients.php');
 session_start();
 require('includes/connect.php');
 error_reporting(E_ALL ^ E_NOTICE);
+echo $_POST["item1"];
 $fid= $_SESSION['fid'];
 //function getValues(){
 	$itemsArray=array();
@@ -30,6 +31,7 @@ $fid= $_SESSION['fid'];
 			$ingredients=$_POST[$items];
 			$qtys=$_POST[$qtys];
 			$itemsArray["ingredient".$i] = ${"ingredient".$i};
+			$itemsArray["ingredient".$i];
 			$qtysArrray["qty".$i] = ${"qty".$i};
 				
 				

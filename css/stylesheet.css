@@ -45,7 +45,7 @@ background-image:url("../img/easy_sunday_roast.jpg");
     background-repeat: no-repeat;
     background-size: 1500px auto;
 	background-position:center;
-	width:100%;
+	width:1000px;
 	margin-top:-22px;
 }
 .dynamic-background2{
@@ -92,10 +92,21 @@ background-image:url("../img/easy_sunday_roast.jpg");
 	float:right;
 	color:white;
 }
+.icon-preview{
+		width:50px;
+		height:auto;
+		display:inline-block;
+	}
 .tenalert{
 	display:none;
 }
 .profileImg{
 	width:100%;
 	height:auto;
+}
+.addMore{
+	display:none;
+}
+.btn-transparent{
+	background-color:transparent;
 }

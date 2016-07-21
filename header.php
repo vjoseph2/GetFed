@@ -57,16 +57,29 @@ $pagename= basename($_SERVER['PHP_SELF']);
 				<li><a href='profile.php'>Profile & Settings</a></li>
 				<li><a href='past_meals.php'>View Past Meals</a></li>
 				<li><a href='manage_residences.php'>Manage Residences</a></li>";
+	}else if($pagename == "manage_residences.php"){
+		echo "  <li><a href='home.php'>Home</a></li>
+				<li><a href='profile.php'>Profile & Settings</a></li>
+				<li><a href='past_meals.php'>View Past Meals</a></li>
+				<li class='active'><a href='manage_residences.php'>Manage Residences</a></li>";
 	}else{
 		echo "There was an error in determining your page. Try reloading or contacting the system administrator";
 	}
 }
 makeCurrentPage();
-        
+
+$fid = $_SESSION['fid'];
+$target_dir= $_SESSION['firstname']."_".$_SESSION['lastname']."_".$fid;
+$path = '../testFTPfolder/'.$target_dir.'/';
+
+//echo $target_dir;
 ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="profile.php" style="display:inline-block"><span class="glyphicon glyphicon-user"></a></span>Welcome,<?php echo " ".$_SESSION['firstname']." "; ?> </li>
+        <li><a href="profile.php" style="display:inline-block"><span class="glyphicon glyphicon-user"></a></span>
+		Welcome,<?php echo " ".$_SESSION['firstname']."! "; ?>
+		Not <?php echo " ".$_SESSION['firstname']." "; ?> 
+		? <span class="login" onclick="logout()">Logout</span></li>
        <!-- <li><a class="login" style="display:inline-block"href="logout.php">Not<?php// echo " ".$_SESSION['firstname']; ?> ? Logout</p></li>-->
       </ul>
     </div>

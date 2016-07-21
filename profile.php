@@ -31,11 +31,26 @@ $fid = $_SESSION['fid'];
         <h4 class="modal-title">Change Profile Image</h4>
       </div>
       <div class="modal-body">
-       
-	   <form class="form profileImage" action="change_img.php" method="POST"> 
+	  <h3>Currently in your files </h3>
+       <?php
+$files1 = scandir($path);
+
+//print_r($files1);
+
+foreach ($files1 as $value) {
+	$fullPath=$path.$value;
+	if ($value=="." || $value==".."){
+		
+	}else{
+	$imgPreview= "<img src='$fullPath' class='icon-preview'>";
+    echo "$imgPreview $value <br>";
+	}
+}?>
+	   <form class="form profileImage" action="upload.php" method="POST" enctype="multipart/form-data"> 
+	   <input type='hidden' name='customFile' value='<?php echo $_SESSION['firstname']."_".$_SESSION['lastname']."_".$fid; ?>'>
 	 Old Image:<span type="text" class="form-control"><?php echo $_SESSION['profImage'];?></span>
 	 New Image:
-	   <input type="text" name="nimg" class="form-control">
+	   <input type="file" name="fileToUpload" id="fileToUpload" >
 	   <input type="hidden" name="fid" value='<?php echo $fid?>'>
       </div>
       <div class="modal-footer">

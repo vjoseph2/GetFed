@@ -25,5 +25,21 @@ if (mysqli_query($conn, $newUser)) {
     echo "<br>Error: " . $newUser . "<br>" . mysqli_error($conn);
 }
 
+$whatIfWeTookThisId = "SELECT fid FROM friends WHERE username='$username' AND password = '$password'";
+$result = $conn->query($whatIfWeTookThisId);
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+		$fid=$row['fid'];
+		echo $fid;
+    }
+} else {
+	"something went wrong...";
+} 
 
+$andPutItSomewhereElse= "INSERT INTO houses (fid,house_address) VALUES('$fid','$residence')";
+if (mysqli_query($conn, $andPutItSomewhereElse)) {
+    echo "<br>New record created successfully";
+} else {
+    echo "<br>Error: " . $andPutItSomewhereElse. "<br>" . mysqli_error($conn);
+}
 ?>
