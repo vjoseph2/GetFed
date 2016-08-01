@@ -62,7 +62,10 @@ function randomImg(){
 	var bgImage= document.getElementById("dynamicbackground").style.backgroundImage= "url('" + imgsources[pickAnimageAnyimage]  + "')";
 		console.log(bgImage);
 	
-}</script>
+}
+setInterval(randomImg, 9000);
+
+</script>
 	<body onload="randomImg()">
 	<div class="row">
 		<div class="col-sm-12 dynamic-background" id="dynamicbackground">

@@ -40,5 +40,9 @@ if ($result->num_rows > 0) {
 } else {
     echo "<br>Sorry, you either typed in an incorrect password or you need to make an account";
 } 
-
 ?>
+<html>
+<script type="text/javascript">
+    <?php echo 'var fid = '.json_encode($_SESSION['fid']).';';?>
+</script>
+</html>

@@ -40,6 +40,7 @@ navbar{
 margin-bottom:0px !important;
 }
 .dynamic-background{
+transition: 2s;
 height:500px;
 background-image:url("../img/easy_sunday_roast.jpg");
     background-repeat: no-repeat;
@@ -49,6 +50,7 @@ background-image:url("../img/easy_sunday_roast.jpg");
 	margin-top:-22px;
 }
 .dynamic-background2{
+transition: 2s;
 height:100%;
 width:100%;
 background-image:url("../img/easy_sunday_roast.jpg");
@@ -109,4 +111,66 @@ background-image:url("../img/easy_sunday_roast.jpg");
 }
 .btn-transparent{
 	background-color:transparent;
+}
+.imgGridblocks{
+	display:inline-block;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.imgGrid{
+	list-style-type:none;
+}
+.img-prof-icon{
+	border-radius:1000px;
+	display:inline-block !important;
+	width:20px;
+	height:auto;
+	margin-top:-10px;
+}
+.time, .range{
+	display:none;
+}
+.bootstrap-switch{
+	height:42px;
+}
+.utensils{
+	display:inline-block;
+	width:80px; 
+	height:auto;
+	padding:0px;
+}
+.main-course{ 
+	border-radius: 50%;
+	height:120px;
+	width:120px;
+}
+.place-setting{
+	display:inline-block;
+	width:auto;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:30px;
+}
+
+.place-setting-label{
+    margin-left: 50%;
+	text-align:center;
+    margin: 0 auto;
+}
+.moreInfo{
+	display: inline-block;
+}
+.greyed-out{
+	background-color:lightgrey;
+	//display:none;
+}
+.height-grey{
+	height:31.4%;
+}
+.clickformore{
+	display:none;
+}
+.popover-title{
+	background-color:#18BC9C !important;
+	color:white;
 }

@@ -2,11 +2,12 @@
 require("includes/connect.php");
 include("header.php");
 $fid = $_SESSION['fid'];
+$profileSrc=$_SESSION['profImage'];
 ?>
 <h1> View & Edit Your Profile </h1>
 <div class='row'>
 	<div class='col-sm-4'>
-	<img src="<?php echo $_SESSION['profImage'] ?>" class='profileImg'>
+	<img src="<?php echo $profileSrc; ?>" class='profileImg'>
 	<button data-toggle="modal" data-target="#img-modal" class='form-control btn btn-primary'>
 	Click Here to Change Your Profile Image
 	<span class='glyphicon glyphicon-picture'></span>
@@ -31,33 +32,69 @@ $fid = $_SESSION['fid'];
         <h4 class="modal-title">Change Profile Image</h4>
       </div>
       <div class="modal-body">
-	  <h3>Currently in your files </h3>
        <?php
-$files1 = scandir($path);
 
+	
+$files1 = scandir($path);
+//$checkPath = empty(scandir($path));
+//echo $checkPath;
+/*if ($checkPath==1){
+	$files1 = scandir($path);
+}else{
+	$files1 = NULL;
+}*/
+if (empty($files1)){
+	echo "<h3>You Currently Have No Images Available<br><small>Add some?</small></h3>";
+}else{
+	echo "<h3>Images Currently Available:</h3> <ul class='imgGrid'>";
+	foreach ($files1 as $value) {
+		$fullPath=$path.$value;
+		if ($value=="." || $value==".."){
+			
+		}else{
+		$imgPreview= "<li class='imgGridblocks'><img src='$fullPath' class='icon-preview'>";
+		echo "$imgPreview $value </li>";
+		}
+	}
+	echo "</ul>";
+	
+}
 //print_r($files1);
 
-foreach ($files1 as $value) {
-	$fullPath=$path.$value;
-	if ($value=="." || $value==".."){
-		
-	}else{
-	$imgPreview= "<img src='$fullPath' class='icon-preview'>";
-    echo "$imgPreview $value <br>";
-	}
-}?>
+?>
 	   <form class="form profileImage" action="upload.php" method="POST" enctype="multipart/form-data"> 
 	   <input type='hidden' name='customFile' value='<?php echo $_SESSION['firstname']."_".$_SESSION['lastname']."_".$fid; ?>'>
-	 Old Image:<span type="text" class="form-control"><?php echo $_SESSION['profImage'];?></span>
-	 New Image:
+	 Old Image:
+	 <span type="text" class="form-control"><?php echo $_SESSION['profImage'];?></span>
+	  Upload an Image:
 	   <input type="file" name="fileToUpload" id="fileToUpload" >
 	   <input type="hidden" name="fid" value='<?php echo $fid?>'>
+	   <input type="submit"  value='Upload an Image' class="btn btn-warning" >
+	   </form>
+	   <hr>
+	 <form class="form" action="change_img.php" method="POST">
+	 Choose an Image: 
+	 <select class="form-control" type="text" name="chooseImg">
+		<?php
+			foreach ($files1 as $value) {
+					$fullPath=$path.$value;
+					if ($value=="." || $value==".."){
+						
+					}else{
+					$imgPreview= "<option value='$path$value'> <img src='$fullPath' class='icon-preview'>";
+					echo "$imgPreview $value</option>";
+					}
+				}			
+		?>
+	 </select>
+	<input type="hidden" name="fid" value='<?php echo $fid?>'>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-warning" ><!--Test</button>-->
+	  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      <input type="submit"  value='Update Profile Image' class="btn btn-success" >
+        <!--Test</button>-->
       </div>
-	  </form>
+	 </form>
     </div>
   </div>
 </div>

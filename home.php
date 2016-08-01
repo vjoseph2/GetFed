@@ -35,6 +35,8 @@ function randomImg(){
 	var bgImage= document.getElementById("dynamicbackground").style.backgroundImage= "url('" + imgsources[pickAnimageAnyimage]  + "')";
 		console.log(bgImage);
 }
+
+setInterval(randomImg, 9000);
 </script>
 
 <script>
@@ -42,10 +44,10 @@ function goIngredients(){
 	window.location.replace("ingredients.php");
 };
 function goPlanner(){ 
-	window.location.replace("plan-meal.html");
+	window.location.replace("plan-meal.php");
 };
 function goRequests(){ 
-	window.location.replace("request-meal.php");
+	window.location.replace("view-meals.php");
 };
 </script>
 	<body onload="randomImg()">
@@ -60,7 +62,7 @@ function goRequests(){
 					<div class="btn-group">
 						<button onclick ="goIngredients()" class="btn btn-info ingredients" data-toggle="tooltip" data-placement="top" title="Edit the ingredients you have" data-original-title="Tooltip on top"><span class="glyphicon glyphicon-pencil"></span><br>Edit Your Ingredients</button>
 						<button onclick ="goPlanner()" class="btn btn-success plan"><span class="glyphicon glyphicon-ice-lolly-tasted"></span><br>Plan A Meal</button>
-						<button onclick ="goRequests()" class="btn btn-danger request"><span class="glyphicon glyphicon-question-sign"></span><br>Request A Meal</button>
+						<button onclick ="goRequests()" class="btn btn-danger request"><span class="glyphicon glyphicon-question-sign"></span><br>View Upcomming Meal</button>
 					</div>
 				</center>
 					<div class="col-sm-4">

@@ -1,10 +1,22 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 	<html>
 		<head>
 		<script src="js/jquery-2.2.4.min.js"></script>
 		<script src="bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 		<script src="js/main.js"></script>
+		<script src="jquery-ui-1.12.0.custom/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.12.0.custom/jonthornton-jquery-timepicker-e417a53/jquery.timepicker.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.12.0.custom/jonthornton-jquery-timepicker-e417a53/lib/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.12.0.custom/jonthornton-jquery-timepicker-e417a53/lib/site.js"></script>
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.12.0.custom/jonthornton-jquery-timepicker-e417a53/jquery.timepicker.css" />
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.12.0.custom/jonthornton-jquery-timepicker-e417a53/lib/bootstrap-datepicker.css" />
+		<link rel="stylesheet" type="text/css" href="jquery-ui-1.12.0.custom/jonthornton-jquery-timepicker-e417a53/lib/site.css" />
 		<link rel="stylesheet" href="css/fonts.css" type="text/css">
+		<link rel="stylesheet" href="jquery-ui-1.12.0.custom/jquery-ui.min.css" type="text/css">
+		<link rel="stylesheet" href="jquery-ui-1.12.0.custom/jquery-ui.theme.css" type="text/css">
 		<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
 		<link rel="stylesheet" href="bootstrap-3.3.6/dist/css/bootstrap.min.css" type="text/css">
 		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -34,21 +46,67 @@
     </div>
   </div>
 </nav>
-
+<script>
+		function dynamicMealImg(){
+		//	var mealBg= document.getElementById("mealImg").style.backgroundImage;
+			var getMealURL= $("input[value='mealLink']").text();
+			console.log(getMealURL);
+			
+			}
+		</script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+	$('#basicExample').timepicker();
+	$('#basicExample2').timepicker();
+	$('#basicExample3').timepicker();
+  } );
+  </script>
+  
 <body>
-<form class="form">
+<form class="form" action="meal_plan.php" method="POST">
 		<h1> Plan a Meal! </h1>
 <div class='row'>
 	<div class='col-sm-12'>
 		<h4>Step 1 : Pick a Day</h4>
-		<div class='calendar'>
-		</div>
+		<input type="text"  class="form-control" name="date" id="datepicker">
 	</div>
 </div>
 <div class='row'>
 	<div class='col-sm-12'>
 		<h4>Step 2 : Pick a Time or Time Range</h4>
-		<input class="form-control" type='time'> to <input class="form-control" type='time'>
+		<span class='questionTime'>Time or Range?</span><br>
+		<div class="timeorrange">
+			<input onclick="check(this.value)" type="radio" name="timerange" value="time">Time<br>
+			<input onclick="check(this.value)" type="radio" name="timerange" value="range">Range<br>
+		</div>
+		<div class="time">
+			<input id="basicExample" name="time" type="text" class="time ui-timepicker-input" autocomplete="off">
+		</div>
+		<div class="range">
+			<input id="basicExample3" name="time1" type="text" class="time ui-timepicker-input" autocomplete="off">
+			to 
+			<input id="basicExample2" name="time2" type="text" class="time ui-timepicker-input" autocomplete="off">
+		</div>
+		<script>
+		function check(timerange) {
+			if(timerange=="time"){
+			$(".timeorrange").hide();
+			$(".time").show();
+			$(".range").hide();
+			$(".questionTime").html("Time");
+			console.log("you chose time");
+			}else{
+			$(".timeorrange").hide();
+			$(".time").hide();
+			$(".range").show();
+			$(".questionTime").html("Range");
+			
+			console.log("you chose range");
+			}
+		}
+		</script>
+		<!--<input class="form-control" type='time'> to <input class="form-control" type='time'>-->
 	</div>
 </div>
 
@@ -63,7 +121,7 @@
 	<div class='col-sm-6'>
 	<h4>Step 3 : Pick a Meal</h4>
 	<small>Title of Meal </small>
-		<input class="form-control" class='text'><br>
+		<input class="form-control" name="mealTitle" class='text'><br>
 	</div>
 	<div class='col-sm-6'>
 	<h4>Optional</h4>
@@ -73,13 +131,6 @@
 </div>
 <input class="form-control btn btn-success" type="submit" value ="Plan the Meal">
 </form>
-		<script>
-		function dynamicMealImg(){
-		//	var mealBg= document.getElementById("mealImg").style.backgroundImage;
-			var getMealURL= $("input[value='mealLink']").text();
-			console.log(getMealURL);
-			
-			}
-		</script>
+		
 </body>
 	</html>

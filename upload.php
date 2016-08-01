@@ -1,5 +1,5 @@
 <?php
-//header("Location: profile.php");
+header("Location: profile.php");
 $fid=$_POST['fid'];
 $target_dir2= $_POST['customFile'];
 $target_dir = '../testFTPfolder/'.$target_dir2.'/';
